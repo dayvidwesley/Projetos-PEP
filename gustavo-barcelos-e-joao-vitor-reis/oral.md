@@ -30,6 +30,8 @@ Assim, os cinco bancos coexistem porque cada um resolve um problema específico 
 
 4. O Quadro 3 define a 2FN como "remover dependências parciais". O que é dependência parcial e por que a 2FN só faz sentido com chave composta? Dê um exemplo concreto.
 
+Nesse caso, dependência parcial significa que um atributo não-chave depende apenas de parte da chave composta. Então, como a chave primária possui apenas 1 atributo, não existe "parte" da chave, logo, a 2FN só faz sentido quando a chave primária é composta por dois ou mais campos.
+Como exemplo, em um sistema de pedidos, uma tabela pode utilizar "Pedido ID + Produto ID" como chave composta para identificar cada item do pedido. Entretanto, o nome do produto depende apenas do "ProdutoID", independentemente do pedido em que ele aparece. Isso caracteriza uma dependência parcial, pois o atributo não depende da chave completa. A 2FN busca eliminar esse problema separando as informações em tabelas específicas, reduzindo redundância e inconsistências.
 
 5. Expandam ACID e BASE. Por que MongoDB, Redis e Cassandra não seguem ACID, e como o teorema CAP explica esse trade-off?
 
