@@ -40,6 +40,12 @@ A correção é separar: criar uma tabela de Produtos com ID_Produto e Nome_Prod
 
 *Resposta (Questão 4):
 
+O Databricks com Delta Lake não é relacional puro nem NoSQL puro. Ele é chamado de lakehouse pois é uma arquitetura que usa a flexibilidade de armazenar grandes volumes de dados e as propriedades ACID dos bancos relacionais, que garantem consistência e integridade.
+
+A escolha faz sentido para logística porque os dados dessa área são híbridos. Parte deles é transacional e estruturada, como ordem de transporte, nota fiscal, status de entrega, logo precisa de consistência. Outra parte é de alto volume e alta frequência como rastreamento de veículo, eventos de movimentação, o que um banco relacional tradicional não aguentaria bem.
+
+O Databricks resolve os dois no mesmo ambiente, com SQL nativo para fazer as consultas. E além de toda justificativa técnica, é a plataforma que o ambiente corporativo de estágio já usa como fonte principal de dados.
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 5. Vocês citam polyglot persistence. No fluxo sensor → banco → análise → decisão → ação que aparece no texto, em que parte entraria um banco NoSQL e por quê?
