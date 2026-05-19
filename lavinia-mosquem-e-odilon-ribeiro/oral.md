@@ -51,3 +51,11 @@ O Databricks resolve os dois no mesmo ambiente, com SQL nativo para fazer as con
 5. Vocês citam polyglot persistence. No fluxo sensor → banco → análise → decisão → ação que aparece no texto, em que parte entraria um banco NoSQL e por quê?
 
 *Resposta (Questão 5):
+
+No fluxo citado o NoSQL entra logo no início, entre o sensor e a análise.
+
+O motivo é volume e velocidade. Em logística, o sensor gera dados o tempo todo, como posição de veículo, leitura de código de barras, evento de movimentação. Esse ritmo de escrita contínua e massiva derrubaria a performance de um banco relacional tradicional.
+
+Um banco NoSQL colunar, como o Cassandra, foi feito exatamente para isso, absorver escrita em alta frequência e armazenar séries temporais com eficiência. Só depois que esse dado está guardado é que a camada de análise entra, processa e gera o indicador.
+
+O banco relacional não some do fluxo, ele fica para os dados consolidados, como a entrega confirmada e o indicador fechado. Cada banco faz o que faz melhor. Isso é exatamente o polyglot persistence.
