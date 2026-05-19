@@ -41,3 +41,4 @@ Como exemplo, em um sistema de pedidos, uma tabela pode utilizar "Pedido ID + Pr
 
 5. Expandam ACID e BASE. Por que MongoDB, Redis e Cassandra não seguem ACID, e como o teorema CAP explica esse trade-off?
 
+Bancos relacionais (MySQL, PostgreSQL) seguem o modelo ACID, que garante alta integridade e confiabilidade nas transações. Entretanto, bancos NoSQL como MongoDB, Redis e Cassandra foram projetados para ambientes distribuídos e grandes volumes de dados, priorizando escalabilidade e disponibilidade. Nesses cenários, manter todas as garantias ACID pode reduzir desempenho e dificultar a distribuição entre múltiplos servidores, levando esses bancos a adotarem modelos mais flexíveis de consistência.
