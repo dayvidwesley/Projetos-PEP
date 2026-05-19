@@ -27,6 +27,12 @@ Assim, os cinco bancos coexistem porque cada um resolve um problema específico 
 
 3. O trabalho não trata agregação versus composição estrutural. Definam as duas, o teste que as separa e um exemplo de cada na fábrica de componentes automotivos que vocês usam.
 
+Realizando um comparativo entre a agregação e a composição estrutural, infere-se que  “Composição” é uma relação que as partes não existem sem o todo. Se, por exemplo, o todo é destruído, as partes deixam de existir automaticamente. No banco de dados relacional, por outro lado, isso se implementa com a opção “Delete On Scade”, isto é, deletar o pai deleta automaticamente os filhos.  No MongoDB, os dados são embutidos dentro do documento pai.
+
+
+A agregação é uma relação caracterizada pelas partes que existem de forma independente do todo. Se o todo é destruído, as partes continuam existindo. No banco relacional, a chave estrangeira existe mas sem “CASCADE” , visto que deletar o pai é bloqueado ou deixa o filho com referência nula. No MongoDB, usa-se referência por ObjectId.
+
+Uma forma de separar-los é levantar o questionamento do que pode ocorrer se o pai for deletado, o que ocorrerá com os filhos. Caso os filhos fiquem desconexos, logo, é do tipo de composição, ou seja, os filhos dependem existencialmente do pai. Caso contrário, é agregação, os filhos existem independentemente.
 
 4. O Quadro 3 define a 2FN como "remover dependências parciais". O que é dependência parcial e por que a 2FN só faz sentido com chave composta? Dê um exemplo concreto.
 
