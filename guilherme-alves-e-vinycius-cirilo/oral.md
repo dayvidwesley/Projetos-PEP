@@ -34,4 +34,4 @@ Resposta:
 5. Vocês recomendam credenciais em variáveis de ambiente ou cofres de segredos. O que distingue os dois e em que cenário cada um é preferível?
 
 Resposta: 
-- 
+- As variáveis de ambiente são preferíveis em cenários simples, como desenvolvimento local, trabalhos acadêmicos, protótipos e pequenos sistemas, porque são fáceis de configurar e já evitam que a senha fique escrita no código. Já os cofres de segredos são preferíveis em ambientes de produção, sistemas industriais, equipes grandes ou situações com dados sensíveis, pois oferecem criptografia, controle de acesso, auditoria e rotação de credenciais. Portanto, ambos aumentam a segurança, mas o cofre de segredos é mais indicado quando há maior criticidade, governança e necessidade de rastreabilidade.
