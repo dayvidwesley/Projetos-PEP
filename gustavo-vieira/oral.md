@@ -16,7 +16,7 @@ Já a Clean Architecture utiliza a regra de dependência, ou seja, o código das
 R.: 
 Nos anos 1960 foram os anos em que arquivos sequenciais e IMS predominavam. Eram sistemas baseados em arquivos e bancos hierárquicos, com baixa flexibilidade e forte dependência da estrutura física dos dados.
 Já nos anos 1970 houve o início do Modelo Relacional, onde os dados eram organizados em tabelas que se relacionavam entre si. Teve início por Edgar F. Codd.
-Nos anos 1980-1990 foi onde houve a consolidação do Modelo Relacional proposto por Codd na década anterior. Os SGBDs relacionais e a linguagem SQL tornaram-se padrão para armazenamento e consulta de dados corporativos. Bancos SQL: Oracle, PostgreSQL, MySQL etc
+Nos anos 1980-1990 foi onde houve a consolidação do Modelo Relacional proposto por Codd na década anterior. Os SGBDs relacionais e a linguagem SQL tornaram-se padrão para armazenamento e consulta de dados corporativos. Bancos SQL: Oracle, PostgreSQL, MySQL etc.
 Por fim, a partir dos anos 2000 houve o surgimento dos bancos NoSQL para lidar com grande volume de dados, principalmente quando são pouco estruturados. Além disso, a partir desta época que houve a utilização de vários bancos de dados dependendo da aplicação.
 
 3. Você menciona NoSQL mas não as propriedades transacionais. O que é ACID e BASE, por que seu cenário precisa de ACID e em que tipo de cenário industrial precisaria de BASE?
