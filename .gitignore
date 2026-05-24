@@ -1,15 +1,7 @@
-# Claude Code / AI
-.claude/
-CLAUDE.md
+# Arquivos internos do professor (não publicar)
 .correcoes/
 notas-n1.md
 notas-n2.md
-.cursorrules
-.cursor/
-.aider*
-.continue/
-.copilot/
-.github/copilot/
 
 # macOS
 .DS_Store
