@@ -104,3 +104,9 @@ Quatro frentes a endereçar:
 2. Ampliar a bibliografia: incluir Codd 1970 (que já está citado no texto sem entrada), Date para BD, Fowler/Sadalage para NoSQL, Martin para Clean Architecture, Cockburn para Hexagonal. Corrigir o formato das citações de colchetes para parênteses, padrão ABNT.
 3. Desenvolver a arquitetura de software com MVC, Clean Architecture e Hexagonal (não apenas camadas), e expandir o histórico do banco de dados com mais detalhe sobre cada década (60, 70, 80-90, 2000, 2010+). Incluir uma seção sobre ACID, BASE e polyglot persistence.
 4. Manter SQLite como cenário acadêmico se preferir, mas incluir pelo menos um exemplo equivalente em PostgreSQL ou MySQL na execução prática, para alinhar com os SGBDs servidos que o roteiro do trabalho privilegia.
+
+## Prova oral
+
+Nota: 9,0
+
+As cinco corretas: MVC, hexagonal e Clean Architecture bem distinguidas, histórico dos bancos, ACID e BASE no seu cenário, as limitações concretas do SQLite (lock de escrita, volume, arquitetura cliente-servidor) e a especificidade do engenheiro de produção com o 5W2H.

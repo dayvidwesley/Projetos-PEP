@@ -56,3 +56,9 @@ Nota do critério: 7,5.
 3. Desenhar o diagrama do modelo de dados e aplicar as três formas normais sobre um exemplo concreto desse modelo.
 4. Escolher um SGBD e justificar pela natureza do dado, com string de conexão, código e queries planejadas.
 5. Corrigir a referência malformada (Teorey) e ampliar a bibliografia com ao menos um artigo acadêmico.
+
+## Prova oral
+
+Nota: 8,5
+
+As cinco corretas, ainda que concisas: dado, informação e conhecimento, dependência parcial e a 2FN, a escolha do relacional para ordens e estoque, o teste que separa composição de agregação e a diferença na extração entre relacional e documental.

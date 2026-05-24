@@ -59,3 +59,9 @@ Nota do critério: 7,0.
 2. Justificar o Databricks como ambiente corporativo de estágio e deixar explícita a relação com os SGBDs da disciplina.
 3. Executar a conexão e as queries, com string de exemplo, passo a passo na ferramenta gráfica, código Python e prints.
 4. Preencher as seções 4 (Resultados) e 5 (Conclusão) e numerar os fluxos como figuras, referenciando-os no texto.
+
+## Prova oral
+
+Nota: 9,5
+
+As cinco corretas e densas: composição com o exemplo da ordem e seus itens, o audit trail, a 2FN com itens de pedido, o Databricks como lakehouse e o lugar do NoSQL no fluxo do sensor.

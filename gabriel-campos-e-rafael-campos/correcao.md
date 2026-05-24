@@ -73,3 +73,9 @@ Quatro frentes a endereçar:
 2. Construir o diagrama ER da base de dados fornecida e aplicar 1FN/2FN/3FN com exemplos desse modelo, marcando também agregação e composição visualmente.
 3. Adicionar uma seção 4 de Resultados Esperados (ou pelo menos um quadro de indicadores planejados) antes das Considerações Finais.
 4. Limpar a numeração de figuras repetidas, padronizar "pelos autores" e incluir ao menos um quadro comparativo PostgreSQL × MongoDB.
+
+## Prova oral
+
+Nota: 9,0
+
+Respostas corretas: ciclo ilustrado com SQL, o teorema CAP justificando o BASE, o nome_produto violando a 2FN, CASCADE frente a RESTRICT e SET NULL, e a diferença entre MVC e Clean Architecture.

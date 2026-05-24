@@ -88,3 +88,9 @@ Cinco frentes principais:
 3. Incluir o ciclo dado → informação → conhecimento → decisão como eixo da introdução ou em SIG, com exemplo concreto.
 4. Construir o diagrama ER da base de dados que será usada na parte prática.
 5. Adensar a Figura 2 (fluxograma) com o código Python correspondente à fase de Conexão (psycopg2.connect, cursor, SELECT) e à fase de Extração (cursor.fetchall + um pandas DataFrame).
+
+## Prova oral
+
+Nota: 9,5
+
+Respondeu as cinco em texto completo: histórico dos bancos por década, as três formas normais com exemplo, agregação e composição, o ciclo do dado até a decisão e ACID frente a BASE, tudo bem desenvolvido.

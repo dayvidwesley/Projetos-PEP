@@ -97,3 +97,9 @@ Cinco frentes:
 3. Incluir uma seção de histórico do banco de dados por décadas e desenvolver agregação versus composição UML, com exemplos da fábrica de componentes automotivos que serve de contexto.
 4. Desenvolver as definições das formas normais com terminologia técnica: dependência funcional, dependência parcial, dependência transitiva, com exemplos concretos no contexto industrial.
 5. Adensar a Figura 1 com o código Python real (mysql-connector-python) que executa a conexão e uma query simples, mais a string de conexão exemplificada.
+
+## Prova oral
+
+Nota: 9,5
+
+As cinco bem desenvolvidas: histórico dos bancos, justificativa de cada SGBD, agregação e composição, a 2FN com dependência parcial e ACID frente a BASE apoiado no teorema CAP.

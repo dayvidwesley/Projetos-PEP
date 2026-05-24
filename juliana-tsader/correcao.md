@@ -61,3 +61,9 @@ Nota do critério: 7,5.
 2. Reorganizar a pasta no padrão `juliana-tsader/N1/...` (apagar o arquivo solto `N1` sem extensão e mover os PDFs/docx para a subpasta).
 3. Incluir o MVC na fundamentação de arquitetura e um parágrafo de governança de TI/audit trail.
 4. Consolidar os indicadores com estrato Qualis e fator de impacto, conforme você mesma propôs no trabalho futuro, e fechar com a comparação documental × relacional anunciada.
+
+## Prova oral
+
+Nota: 10,0
+
+As cinco com profundidade acima da média: a função dos elementos pré-textuais do artigo, o teste de dependência separando composição e agregação, a escolha do MongoDB pela natureza do JSON, as formas normais frente à desnormalização documental e o banco como detalhe substituível na Clean Architecture.

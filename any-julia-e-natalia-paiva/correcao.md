@@ -83,3 +83,9 @@ Quatro frentes a endereçar:
 2. Incluir uma subseção sobre agregação e composição com exemplos do próprio caso.
 3. Reformular o exemplo da 2FN usando uma tabela com chave composta.
 4. Adensar a conexão: string de exemplo, print do Power BI conectado, snippet M do Power Query.
+
+## Prova oral
+
+Nota: 9,5
+
+As cinco com profundidade: dependência parcial em chave composta, agregação frente a composição no próprio modelo, PostgreSQL normalizado frente ao esquema estrela do Power BI, ETL e ELT, e a independência do DAX em relação à origem dos dados.

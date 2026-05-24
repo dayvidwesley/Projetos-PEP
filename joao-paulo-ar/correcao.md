@@ -105,3 +105,9 @@ Cinco frentes a endereçar:
 3. Unificar a terminologia de agregação e composição na seção 2.6 no sentido UML/modelagem orientada a objetos (parte/todo, dependência de existência), conforme o roteiro do trabalho pede.
 4. Caracterizar a empresa onde o SQL Server será aplicado, mostrar um diagrama ER do banco real e incluir pelo menos uma query SQL típica de Engenharia de Produção com seu DataFrame resultante.
 5. Reorganizar o artigo com a estrutura ENEGEP completa: 1 Introdução, 2 Fundamentação Teórica, 3 Metodologia, 4 Resultados (esperados para a N1, executados na N2), 5 Considerações Finais, Referências. Ajustar o título removendo os parênteses e colocar o resumo em itálico.
+
+## Prova oral
+
+Nota: 9,0
+
+Respostas corretas: agregação no MER frente à UML, o papel do CODASYL, o teorema CAP, as arquiteturas hexagonal e Clean, e a conexão com pyodbc dentro do ciclo do dado até a decisão.

@@ -94,3 +94,9 @@ Cinco frentes:
 3. Definir explicitamente 1FN, 2FN e 3FN com exemplos do dataset que será analisado.
 4. Construir o diagrama ER do dataset fornecido pelo docente, marcando agregação versus composição visualmente.
 5. Adensar a Fase 1 com código Python real (string de conexão, `psycopg2.connect`, cursor, primeiro SELECT) e adicionar as seções 4 (Resultados Esperados) e 5 (Considerações Finais).
+
+## Prova oral
+
+Nota: 8,5
+
+As cinco corretas: SIG frente a ERP e seus níveis de decisão, funções SQL frente a relacionamento UML, as formas normais com violação em ordens de produção, a conexão com psycopg2 e a polyglot persistence. A conexão ficou descrita em texto, faltou o código literal que a pergunta pedia.

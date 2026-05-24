@@ -82,3 +82,9 @@ Quatro frentes a endereçar:
 2. Construir o diagrama ER (ou de classes) das entidades do Salesforce que vocês citam — Unidade, Oportunidade, Veículo, Histórico de Preços, Campanha, com cardinalidades e marcando agregação vs composição no modelo.
 3. Adensar o procedimento com código pandas mostrando a leitura dos dois CSVs, o cálculo de pelo menos dois indicadores do Quadro 4 e a geração de um gráfico.
 4. Reformular o exemplo de composição (Ordem de Venda × Itens, por exemplo) e revisar a explicação da 2FN com chave composta.
+
+## Prova oral
+
+Nota: 9,5
+
+Respostas precisas: chave composta veículo/campanha, ACID e BASE no contexto do Salesforce, composição da ordem de venda, conhecimento frente a decisão e a separação de camadas que mantém o POP válido mesmo se a fonte mudar.

@@ -57,3 +57,9 @@ Nota do critério: 6,0.
 2. Completar a arquitetura de software com MVC e Clean Architecture (Martin), no mesmo nível dos blocos de SIG e bancos.
 3. Desenhar o diagrama do modelo de dados real e aplicar as formas normais sobre ele.
 4. Acrescentar o código Python de conexão (psycopg2/pymongo) e as queries que serão executadas na parte prática.
+
+## Prova oral
+
+Nota: 8,0
+
+Quatro respostas corretas (o ciclo do dado ao conhecimento, a escolha do relacional, a 2FN frente à 3FN e o banco no Model do MVC). Na última, sobre implementar composição e agregação em PostgreSQL e MongoDB, faltou fechar a resposta.

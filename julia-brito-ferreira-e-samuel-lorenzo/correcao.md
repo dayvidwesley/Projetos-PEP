@@ -59,3 +59,9 @@ Nota do critério: 8,0.
 2. Alinhar o POP e a Tabela 4: deixar explícito se o foco prático é PostgreSQL, MongoDB ou os dois em paralelo.
 3. Executar os códigos e pipelines sobre o dataset fornecido, com diagrama do modelo real (ER no PostgreSQL e/ou de coleções no MongoDB) e prints da conexão.
 4. Acrescentar seção 4 (Resultados) e seção 5 (Considerações Finais) para fechar o artigo no padrão ENEGEP.
+
+## Prova oral
+
+Nota: 10,0
+
+As cinco com profundidade: o CASCADE expressando composição e por que não cabe em Fornecedor/Pedido, PostgreSQL frente a MongoDB com sensores heterogêneos, a polyglot persistence, o ciclo do tempo de ciclo até a decisão e a 2FN garantida na tabela ordens_producao.

@@ -90,3 +90,9 @@ Quatro frentes:
 2. Ampliar a bibliografia com pelo menos Date (BD), Sommerville ou Bass/Clements/Kazman (arquitetura), e substituir a citação ao material didático por referências diretas aos autores que ele baseia.
 3. Executar o procedimento sobre o dataset fornecido: gerar a captura de tela da conexão estabelecida, construir o diagrama do modelo de dados (ER no PostgreSQL e diagrama de coleções no MongoDB), e produzir os indicadores propostos com pandas/matplotlib.
 4. Adicionar um exemplo prático do carregamento das credenciais via `os.environ` ou `python-dotenv`, materializando a recomendação de governança da seção 3.4.
+
+## Prova oral
+
+Nota: 9,5
+
+As cinco corretas e densas: BASE com o teorema CAP, a quebra da equivalência entre GROUP BY e $group quando há junções profundas, CASCADE frente a RESTRICT e SET NULL, a integração orientada a eventos entre os bancos e a diferença entre variável de ambiente e cofre de segredos.

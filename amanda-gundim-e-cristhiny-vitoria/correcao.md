@@ -64,3 +64,9 @@ Três frentes a endereçar antes da entrega prática:
 1. A partir da base de dados fornecida, construir o diagrama do modelo de dados desse cenário, com 1FN/2FN/3FN aplicadas ao próprio caso e agregações/composições identificadas no modelo.
 2. Documentar a conexão de verdade: string de conexão, código Python rodando, print do pgAdmin/Compass conectado.
 3. Fechar com as seções 4 e 5 efetivamente: indicadores extraídos, queries que respondem a uma pergunta de Engenharia de Produção e amarra final no ciclo dado→decisão.
+
+## Prova oral
+
+Nota: 9,0
+
+As cinco respostas corretas e bem colocadas: 2FN com dependência parcial, ACID e BASE, o ciclo do dado até a decisão, o teste que separa agregação de composição e o banco como detalhe de infraestrutura na Clean Architecture.

@@ -75,3 +75,9 @@ Quatro frentes principais:
 2. Reescrever as três formas normais usando terminologia técnica padrão (dependência funcional, chave composta, dependência parcial, dependência transitiva), com exemplo do próprio caso da ferragista.
 3. Executar a conexão real com `mysql.connector.connect(**config)`, mostrar o cursor recebendo o resultado de pelo menos uma query simples e capturar o print do retorno.
 4. Renumerar as figuras (corrigir a duplicação da Figura 4) e adicionar uma seção 5 de Considerações Finais separada de Resultados Esperados.
+
+## Prova oral
+
+Nota: 9,0
+
+Respostas corretas: dependência funcional e parcial, a entidade itens_pedido em N:M, o ON DELETE CASCADE, a polyglot persistence no cenário da ferragista e o ciclo do dado até a decisão com uma consulta SQL ligando dado e informação.
