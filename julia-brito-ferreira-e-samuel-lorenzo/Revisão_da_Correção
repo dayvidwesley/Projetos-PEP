@@ -1,0 +1,10 @@
+Boa noite, professor! 
+Houve alguns pontos na correção que eu gostaria de questionar e verificar a retificação da nota.
+
+Pontos em que a correção foi equivocada:
+1. Nome do professor no cabeçalho (critério Formatação)
+A correção trata a presença do nome do professor como erro de autoria. No entanto, na estrutura da disciplina ele é o orientador do trabalho, e sua inclusão no cabeçalho do artigo é esperada e adequada para esse tipo de produção acadêmica orientada. O desconto aplicado nesse item não se justifica.
+2. Ausência de Conclusão e Resultados (critério Formatação)
+A correção aponta a falta de seção de Conclusão/Considerações Finais como deficiência de formatação. Porém, o escopo da N1 foi delimitado até a Metodologia — Resultados e Conclusões são entregas previstas para a N2. Descontar por algo que não era parte do escopo da entrega é um equívoco de avaliação.
+3. "POP todo detalhado em MongoDB" (critério Procedimento de conexão)
+A correção afirma que há descompasso porque o POP estaria "todo detalhado em MongoDB" enquanto a Tabela 4 aponta PostgreSQL como referência. Na leitura do trabalho, o inverso é mais preciso: a seção 3.2 (PostgreSQL) está completamente desenvolvida, com conexão, três consultas SQL documentadas e todas as sete etapas detalhadas; já a seção 3.3 (MongoDB) tem as etapas 5, 6 e 7 explicitamente marcadas como "Planejada para N2". O trabalho, portanto, é mais completo no PostgreSQL do que no MongoDB, e a Tabela 4 reflete isso corretamente.
