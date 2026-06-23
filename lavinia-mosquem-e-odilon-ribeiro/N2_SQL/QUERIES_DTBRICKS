@@ -1,0 +1,23 @@
+QUERY 01 - EXTRAÇÃO DE RELATÓRIO DE VIAGEM COMPLETO 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT *,
+       date_format(data_fim_viagem, 'dd/MM/yyyy') AS Data_Fim,
+       CAST(numero_viagem AS BIGINT) AS Transporte
+FROM lakehouse.logistica.onelog_viagem_consolidado
+WHERE ano = '2026'
+  AND mes IN ( '05')
+  AND regional = 'RG-SE/CO'
+  AND unidade IN ('CD APG',
+                  'CD BRASILIA',
+                  'CD CUIABA',
+                  'TSP CAMPO GRANDE',
+                  'TSP TOCANTINS')
+
+QUERY 02 - EXTRAÇÃO DE TABELA APOIO - DIMENSÃO FILIAL 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT 
+l_exp,
+local_expedicao,
+regional
+FROM 'lakehouse'.'logistica'.'apoio_filial'
+WHERE local_expedicao IN ('CD APG', 'CD BRASILIA','CD CUIABA', 'TSP TOCANTINS', 'TSP CAMPO GRANDE')
