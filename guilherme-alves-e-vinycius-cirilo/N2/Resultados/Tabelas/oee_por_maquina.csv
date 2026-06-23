@@ -1,0 +1,5 @@
+﻿recurso;recurso_nome;centro;tempo_planejado_min;tempo_operando_min;tempo_parado_min;tempo_ideal_seg;pecas_total;pecas_boas;pecas_refugo;disponibilidade;performance;qualidade;oee
+INJ-01;Injetora 01;Injeção;234900;216537;18363;12360321;365568;360449;5119;0,9218;0,9514;0,9860;0,8647
+TOR-01;Torno CNC 01;Usinagem;234900;214334;20566;12032280;122744;120695;2049;0,9124;0,9356;0,9833;0,8395
+TOR-02;Torno CNC 02;Usinagem;234900;209769;25131;11305450;86965;85037;1928;0,8930;0,8982;0,9778;0,7844
+MON-01;Linha de Montagem 01;Montagem;234900;202169;32731;10568340;31185;30319;866;0,8607;0,8712;0,9722;0,7290
