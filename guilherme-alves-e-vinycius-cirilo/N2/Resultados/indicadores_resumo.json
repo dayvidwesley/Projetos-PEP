@@ -1,0 +1,497 @@
+{
+  "oee_global": {
+    "oee": 80.7,
+    "disponibilidade": 89.7,
+    "performance": 91.5,
+    "qualidade": 98.4,
+    "pecas_total": 606462,
+    "pecas_refugo": 9962
+  },
+  "oee_por_maquina": [
+    {
+      "recurso": "INJ-01",
+      "recurso_nome": "Injetora 01",
+      "centro": "Injeção",
+      "disponibilidade": 0.9218,
+      "performance": 0.9514,
+      "qualidade": 0.986,
+      "oee": 0.8647
+    },
+    {
+      "recurso": "TOR-01",
+      "recurso_nome": "Torno CNC 01",
+      "centro": "Usinagem",
+      "disponibilidade": 0.9124,
+      "performance": 0.9356,
+      "qualidade": 0.9833,
+      "oee": 0.8395
+    },
+    {
+      "recurso": "TOR-02",
+      "recurso_nome": "Torno CNC 02",
+      "centro": "Usinagem",
+      "disponibilidade": 0.893,
+      "performance": 0.8982,
+      "qualidade": 0.9778,
+      "oee": 0.7844
+    },
+    {
+      "recurso": "MON-01",
+      "recurso_nome": "Linha de Montagem 01",
+      "centro": "Montagem",
+      "disponibilidade": 0.8607,
+      "performance": 0.8712,
+      "qualidade": 0.9722,
+      "oee": 0.729
+    }
+  ],
+  "pareto_paradas": [
+    {
+      "motivo": "Ajuste de processo",
+      "horas": 304.9,
+      "ocorrencias": 884,
+      "pct": 18.9,
+      "pct_acumulado": 18.9
+    },
+    {
+      "motivo": "Falta de operador",
+      "horas": 276.3,
+      "ocorrencias": 833,
+      "pct": 17.1,
+      "pct_acumulado": 36.0
+    },
+    {
+      "motivo": "Falta de material",
+      "horas": 270.6,
+      "ocorrencias": 821,
+      "pct": 16.8,
+      "pct_acumulado": 52.8
+    },
+    {
+      "motivo": "Setup/Troca de ferramenta",
+      "horas": 258.7,
+      "ocorrencias": 807,
+      "pct": 16.0,
+      "pct_acumulado": 68.8
+    },
+    {
+      "motivo": "Pequenas paradas",
+      "horas": 254.1,
+      "ocorrencias": 781,
+      "pct": 15.7,
+      "pct_acumulado": 84.6
+    },
+    {
+      "motivo": "Manutenção corretiva (quebra)",
+      "horas": 248.6,
+      "ocorrencias": 159,
+      "pct": 15.4,
+      "pct_acumulado": 100.0
+    }
+  ],
+  "refugo": [
+    {
+      "sku": "CJM-500",
+      "produto": "Conjunto Pressurizador",
+      "pecas_total": 21078,
+      "pecas_refugo": 594,
+      "taxa_refugo_pct": 2.818,
+      "fpy_pct": 97.182
+    },
+    {
+      "sku": "CJM-700",
+      "produto": "Conjunto Booster Duplo",
+      "pecas_total": 10107,
+      "pecas_refugo": 272,
+      "taxa_refugo_pct": 2.691,
+      "fpy_pct": 97.309
+    },
+    {
+      "sku": "BMB-300",
+      "produto": "Bomba Submersa 3cv",
+      "pecas_total": 86965,
+      "pecas_refugo": 1928,
+      "taxa_refugo_pct": 2.217,
+      "fpy_pct": 97.783
+    },
+    {
+      "sku": "BMB-200",
+      "produto": "Bomba Centrífuga 2cv",
+      "pecas_total": 49266,
+      "pecas_refugo": 826,
+      "taxa_refugo_pct": 1.677,
+      "fpy_pct": 98.323
+    },
+    {
+      "sku": "BMB-100",
+      "produto": "Bomba Centrífuga 1cv",
+      "pecas_total": 73478,
+      "pecas_refugo": 1223,
+      "taxa_refugo_pct": 1.664,
+      "fpy_pct": 98.336
+    },
+    {
+      "sku": "VLV-100",
+      "produto": "Válvula Gaveta 1\"",
+      "pecas_total": 47691,
+      "pecas_refugo": 685,
+      "taxa_refugo_pct": 1.436,
+      "fpy_pct": 98.564
+    },
+    {
+      "sku": "VLV-050",
+      "produto": "Válvula Esfera 1/2\"",
+      "pecas_total": 204891,
+      "pecas_refugo": 2909,
+      "taxa_refugo_pct": 1.42,
+      "fpy_pct": 98.58
+    },
+    {
+      "sku": "VLV-075",
+      "produto": "Válvula Esfera 3/4\"",
+      "pecas_total": 112986,
+      "pecas_refugo": 1525,
+      "taxa_refugo_pct": 1.35,
+      "fpy_pct": 98.65
+    }
+  ],
+  "pareto_defeitos": [
+    {
+      "defeitos": 57,
+      "amostras": 2590,
+      "inspecoes": 45,
+      "reprovadas": 2,
+      "tipo_defeito": "Vazamento",
+      "pct": 26.89,
+      "pct_acumulado": 26.89
+    },
+    {
+      "defeitos": 49,
+      "amostras": 2230,
+      "inspecoes": 43,
+      "reprovadas": 3,
+      "tipo_defeito": "Dimensional",
+      "pct": 23.11,
+      "pct_acumulado": 50.0
+    },
+    {
+      "defeitos": 38,
+      "amostras": 1930,
+      "inspecoes": 39,
+      "reprovadas": 1,
+      "tipo_defeito": "Acabamento",
+      "pct": 17.92,
+      "pct_acumulado": 67.92
+    },
+    {
+      "defeitos": 36,
+      "amostras": 1710,
+      "inspecoes": 31,
+      "reprovadas": 0,
+      "tipo_defeito": "Solda",
+      "pct": 16.98,
+      "pct_acumulado": 84.91
+    },
+    {
+      "defeitos": 32,
+      "amostras": 1680,
+      "inspecoes": 34,
+      "reprovadas": 0,
+      "tipo_defeito": "Montagem",
+      "pct": 15.09,
+      "pct_acumulado": 100.0
+    }
+  ],
+  "mtbf_mttr": [
+    {
+      "recurso": "INJ-01",
+      "horas_operando": 3608.95,
+      "falhas": 45,
+      "mtbf_h": 80.2,
+      "mttr_h": 1.46,
+      "disponibilidade_inerente_pct": 98.21
+    },
+    {
+      "recurso": "MON-01",
+      "horas_operando": 3369.48,
+      "falhas": 38,
+      "mtbf_h": 88.67,
+      "mttr_h": 1.76,
+      "disponibilidade_inerente_pct": 98.06
+    },
+    {
+      "recurso": "TOR-01",
+      "horas_operando": 3572.23,
+      "falhas": 39,
+      "mtbf_h": 91.6,
+      "mttr_h": 1.45,
+      "disponibilidade_inerente_pct": 98.44
+    },
+    {
+      "recurso": "TOR-02",
+      "horas_operando": 3496.15,
+      "falhas": 37,
+      "mtbf_h": 94.49,
+      "mttr_h": 1.61,
+      "disponibilidade_inerente_pct": 98.32
+    }
+  ],
+  "curva_abc": [
+    {
+      "sku": "BMB-300",
+      "produto": "Bomba Submersa 3cv",
+      "receita_liquida": 197508298.0,
+      "margem_contribuicao": 103833418.0,
+      "margem_pct": 52.57,
+      "pct": 35.12,
+      "pct_acumulado": 35.12,
+      "classe_abc": "A"
+    },
+    {
+      "sku": "BMB-200",
+      "produto": "Bomba Centrífuga 2cv",
+      "receita_liquida": 80069831.5,
+      "margem_contribuicao": 41634378.5,
+      "margem_pct": 52.0,
+      "pct": 14.24,
+      "pct_acumulado": 49.36,
+      "classe_abc": "A"
+    },
+    {
+      "sku": "BMB-100",
+      "produto": "Bomba Centrífuga 1cv",
+      "receita_liquida": 77577804.0,
+      "margem_contribuicao": 40486824.0,
+      "margem_pct": 52.19,
+      "pct": 13.8,
+      "pct_acumulado": 63.16,
+      "classe_abc": "A"
+    },
+    {
+      "sku": "CJM-500",
+      "produto": "Conjunto Pressurizador",
+      "receita_liquida": 76617996.0,
+      "margem_contribuicao": 40116426.0,
+      "margem_pct": 52.36,
+      "pct": 13.63,
+      "pct_acumulado": 76.79,
+      "classe_abc": "A"
+    },
+    {
+      "sku": "CJM-700",
+      "produto": "Conjunto Booster Duplo",
+      "receita_liquida": 60423236.0,
+      "margem_contribuicao": 31702076.0,
+      "margem_pct": 52.47,
+      "pct": 10.75,
+      "pct_acumulado": 87.53,
+      "classe_abc": "B"
+    },
+    {
+      "sku": "VLV-050",
+      "produto": "Válvula Esfera 1/2\"",
+      "receita_liquida": 32289170.4,
+      "margem_contribuicao": 17003903.4,
+      "margem_pct": 52.66,
+      "pct": 5.74,
+      "pct_acumulado": 93.27,
+      "classe_abc": "B"
+    },
+    {
+      "sku": "VLV-075",
+      "produto": "Válvula Esfera 3/4\"",
+      "receita_liquida": 24272188.8,
+      "margem_contribuicao": 12761872.8,
+      "margem_pct": 52.58,
+      "pct": 4.32,
+      "pct_acumulado": 97.59,
+      "classe_abc": "C"
+    },
+    {
+      "sku": "VLV-100",
+      "produto": "Válvula Gaveta 1\"",
+      "receita_liquida": 13555504.0,
+      "margem_contribuicao": 7076656.0,
+      "margem_pct": 52.21,
+      "pct": 2.41,
+      "pct_acumulado": 100.0,
+      "classe_abc": "C"
+    }
+  ],
+  "receita_total": 562314028.7,
+  "mape_global": 8.4,
+  "acuracia_previsao": [
+    {
+      "sku": "CJM-500",
+      "mape_pct": 5.95,
+      "qtd_prevista": 20358,
+      "qtd_real": 19313,
+      "vies_pct": 5.41
+    },
+    {
+      "sku": "VLV-100",
+      "mape_pct": 5.97,
+      "qtd_prevista": 47391,
+      "qtd_real": 44992,
+      "vies_pct": 5.33
+    },
+    {
+      "sku": "CJM-700",
+      "mape_pct": 7.3,
+      "qtd_prevista": 9981,
+      "qtd_real": 9386,
+      "vies_pct": 6.34
+    },
+    {
+      "sku": "BMB-200",
+      "mape_pct": 8.01,
+      "qtd_prevista": 49010,
+      "qtd_real": 46141,
+      "vies_pct": 6.22
+    },
+    {
+      "sku": "BMB-100",
+      "mape_pct": 8.85,
+      "qtd_prevista": 74141,
+      "qtd_real": 68687,
+      "vies_pct": 7.94
+    },
+    {
+      "sku": "VLV-075",
+      "mape_pct": 9.15,
+      "qtd_prevista": 116207,
+      "qtd_real": 106577,
+      "vies_pct": 9.04
+    },
+    {
+      "sku": "BMB-300",
+      "mape_pct": 10.65,
+      "qtd_prevista": 87594,
+      "qtd_real": 80064,
+      "vies_pct": 9.4
+    },
+    {
+      "sku": "VLV-050",
+      "mape_pct": 11.46,
+      "qtd_prevista": 209002,
+      "qtd_real": 188707,
+      "vies_pct": 10.75
+    }
+  ],
+  "aderencia_plano": [
+    {
+      "sku": "BMB-100",
+      "produto": "Bomba Centrífuga 1cv",
+      "qtd_plano": 72303,
+      "qtd_op": 72303,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "BMB-200",
+      "produto": "Bomba Centrífuga 2cv",
+      "qtd_plano": 48468,
+      "qtd_op": 48468,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "BMB-300",
+      "produto": "Bomba Submersa 3cv",
+      "qtd_plano": 85755,
+      "qtd_op": 85755,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "CJM-500",
+      "produto": "Conjunto Pressurizador",
+      "qtd_plano": 20721,
+      "qtd_op": 20721,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "CJM-700",
+      "produto": "Conjunto Booster Duplo",
+      "qtd_plano": 9755,
+      "qtd_op": 9755,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "VLV-050",
+      "produto": "Válvula Esfera 1/2\"",
+      "qtd_plano": 199549,
+      "qtd_op": 199549,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "VLV-075",
+      "produto": "Válvula Esfera 3/4\"",
+      "qtd_plano": 110640,
+      "qtd_op": 110640,
+      "aderencia_pct": 100.0
+    },
+    {
+      "sku": "VLV-100",
+      "produto": "Válvula Gaveta 1\"",
+      "qtd_plano": 47375,
+      "qtd_op": 47375,
+      "aderencia_pct": 100.0
+    }
+  ],
+  "aderencia_producao_real": [
+    {
+      "sku": "CJM-500",
+      "produto": "Conjunto Pressurizador",
+      "qtd_produzida_boa_mes": 20484,
+      "qtd_planejada_erp": 20721,
+      "aderencia_pct": 98.86
+    },
+    {
+      "sku": "BMB-300",
+      "produto": "Bomba Submersa 3cv",
+      "qtd_produzida_boa_mes": 85037,
+      "qtd_planejada_erp": 85755,
+      "aderencia_pct": 99.16
+    },
+    {
+      "sku": "VLV-100",
+      "produto": "Válvula Gaveta 1\"",
+      "qtd_produzida_boa_mes": 47006,
+      "qtd_planejada_erp": 47375,
+      "aderencia_pct": 99.22
+    },
+    {
+      "sku": "BMB-100",
+      "produto": "Bomba Centrífuga 1cv",
+      "qtd_produzida_boa_mes": 72255,
+      "qtd_planejada_erp": 72303,
+      "aderencia_pct": 99.93
+    },
+    {
+      "sku": "BMB-200",
+      "produto": "Bomba Centrífuga 2cv",
+      "qtd_produzida_boa_mes": 48440,
+      "qtd_planejada_erp": 48468,
+      "aderencia_pct": 99.94
+    },
+    {
+      "sku": "VLV-075",
+      "produto": "Válvula Esfera 3/4\"",
+      "qtd_produzida_boa_mes": 111461,
+      "qtd_planejada_erp": 110640,
+      "aderencia_pct": 100.74
+    },
+    {
+      "sku": "CJM-700",
+      "produto": "Conjunto Booster Duplo",
+      "qtd_produzida_boa_mes": 9835,
+      "qtd_planejada_erp": 9755,
+      "aderencia_pct": 100.82
+    },
+    {
+      "sku": "VLV-050",
+      "produto": "Válvula Esfera 1/2\"",
+      "qtd_produzida_boa_mes": 201982,
+      "qtd_planejada_erp": 199549,
+      "aderencia_pct": 101.22
+    }
+  ]
+}
