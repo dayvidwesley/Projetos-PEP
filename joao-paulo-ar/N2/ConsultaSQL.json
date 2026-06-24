@@ -1,0 +1,48 @@
+{
+  "dashboard": {
+    "nome": "KPIs Maio 2026",
+    "periodo": {
+      "inicio": "2026-05-01",
+      "fim": "2026-06-01"
+    },
+    "fonte": "dbo.AD_PCPCEN",
+    "indicadores": [
+      {
+        "id": "tiragem_total",
+        "descricao": "Tiragem Total"
+      },
+      {
+        "id": "total_ops",
+        "descricao": "Total de OPs"
+      },
+      {
+        "id": "impressoes_internas",
+        "descricao": "Impressões Internas"
+      },
+      {
+        "id": "impressoes_externas",
+        "descricao": "Impressões Externas"
+      },
+      {
+        "id": "ops_monocamada",
+        "descricao": "OPs Monocamada"
+      },
+      {
+        "id": "tiragem_media_op",
+        "descricao": "Tiragem Média por OP"
+      }
+    ]
+  },
+  "graficos": [
+    {
+      "id": "top5_tiragem",
+      "tipo": "bar",
+      "titulo": "Top 5 OPs por Tiragem"
+    },
+    {
+      "id": "tiragem_diaria",
+      "tipo": "line",
+      "titulo": "Tiragem por Dia"
+    }
+  ]
+}
