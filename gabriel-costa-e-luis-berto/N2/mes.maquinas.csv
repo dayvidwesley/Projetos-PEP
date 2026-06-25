@@ -1,0 +1,5 @@
+_id,codigo,nome,centro_trabalho,capacidade_nominal_h,fabricante,modelo,ano_fabricacao,status
+6a1340efcac062957a9e01eb,TOR-01,Torno CNC 01,Usinagem,40,Romi,GL 280,2019,ATIVA
+6a1340efcac062957a9e01ec,TOR-02,Torno CNC 02,Usinagem,28,Romi,GL 240M,2017,ATIVA
+6a1340efcac062957a9e01ed,INJ-01,Injetora 01,Injeção,110,Haitian,MA 1600 III,2020,ATIVA
+6a1340efcac062957a9e01ee,MON-01,Linha de Montagem 01,Montagem,12,Interna,Linha Manual,2015,ATIVA
