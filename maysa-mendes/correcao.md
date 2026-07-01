@@ -62,3 +62,47 @@ Nota do critério: 7,5.
 Nota: 8,5
 
 As cinco corretas, ainda que concisas: dado, informação e conhecimento, dependência parcial e a 2FN, a escolha do relacional para ordens e estoque, o teste que separa composição de agregação e a diferença na extração entre relacional e documental.
+
+# Correção N2 — Maysa Mendes Campos
+Data: 27/06/2026
+Trabalho: Procedimento para Extração e Análise de Dados por meio de Banco de Dados no Contexto da Engenharia de Produção
+
+A parte prática da N2 deu um salto em relação à N1: você executou o procedimento nos dois paradigmas, PostgreSQL e MongoDB, com escolha justificada pela natureza do dado, e fechou o ciclo até a decisão nos dois casos. (Observação: os dois PDFs de "Correção" na pasta são cópias de trechos do próprio artigo, não documentos de contestação, então não há ratificação a aplicar além do que já valia.)
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão está em código nos dois bancos: string libpq e psycopg2 com pd.read_sql no Postgres (Figura 2), URI mongodb e pymongo no Mongo (Figura 4), com as senhas anonimizadas. É reprodutível no nível de código. A ressalva da etapa "Conectar" é que falta o print da tela conectada (DBeaver/Compass), que a rubrica pede; a exploração gráfica é mencionada na metodologia mas não evidenciada com captura. Trabalho sobre bancos locais/didáticos, o que é aceito.
+
+Nota do critério: 7,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+As duas consultas são boas e pertinentes. No Postgres, JOIN entre ordem_producao e produto com SUM, COUNT, GROUP BY, ORDER BY e LIMIT (Figura 3), respondendo volume planejado por SKU para análise de capacidade. No Mongo, um pipeline de verdade: $group por recurso somando peças, refugo e tempos, $project calculando taxa de refugo e disponibilidade, $sort (Figura 4). Calcular dois componentes do OEE dentro do próprio banco é bem acima do trivial e mostra que você entendeu a agregação documental. As duas respondem perguntas reais de EP (capacidade/PCP e manutenção/qualidade).
+
+Nota do critério: 8,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+A curva ABC de produtos (Pareto com classes A/B/C e percentual acumulado) e os indicadores operacionais de refugo e disponibilidade por recurso, com o gráfico de dispersão mostrando a associação inversa entre os dois, sustentam decisões concretas: concentrar o planejamento na família de válvulas classe A e parametrizar o MRP, priorizar a MON-01 no plano de manutenção e usar a INJ-01 como referência de boas práticas. A conclusão amarra explicitamente o ciclo dado→informação→conhecimento→decisão. Gostei da honestidade metodológica de reconhecer os limites da classe ABC e da dispersão dada a amostra pequena.
+
+Nota do critério: 8,0.
+
+## Código documentado e reprodutível (peso 15%)
+
+O código aparece como imagem (Figuras 2, 3 e 4), e o pipeline da Figura 4 está cortado na margem direita, com parte do $project ilegível, o que prejudica a reprodução. Não há requirements, README nem um arquivo de código rodável anexado, e não há dados de exemplo. As bibliotecas estão citadas (psycopg2, pymongo, pandas, matplotlib), mas o trabalho é reprodutível só no conceito, não na prática. Some-se que ficaram pendentes itens da N1 que afetam o conjunto: a referência malformada (Teorey) segue na lista e a bibliografia não foi ampliada com artigo acadêmico.
+
+Nota do critério: 6,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 7,0 | 25% | 1,75 |
+| Qualidade das queries e análises | 8,0 | 25% | 2,00 |
+| Indicadores gerados e interpretação | 8,0 | 20% | 1,60 |
+| Código documentado e reprodutível | 6,0 | 15% | 0,90 |
+| **Soma ponderada (85%)** | | | **6,25** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,4**. Com o ponto extra atribuído na N2, a nota final fica **8,4**.
+
+Faltou o diagrama do modelo de dados real (os quadros de normalização usam exemplos de manual, não as tabelas que você consultou) e o código entregue como arquivo, não como print cortado. O pipeline do Mongo é o trecho mais forte do seu trabalho, e ficaria melhor entregue completo e legível, não como print cortado.

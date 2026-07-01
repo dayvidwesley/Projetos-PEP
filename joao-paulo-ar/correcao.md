@@ -111,3 +111,47 @@ Cinco frentes a endereçar:
 Nota: 9,0
 
 Respostas corretas: agregação no MER frente à UML, o papel do CODASYL, o teorema CAP, as arquiteturas hexagonal e Clean, e a conexão com pyodbc dentro do ciclo do dado até a decisão.
+
+# Correção N2 — João Paulo Alves da Rocha
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Extração e Análise de Dados em Banco de Dados aplicado à Engenharia de Produção
+
+Você endereçou a maioria das frentes da N1: a estrutura ENEGEP está completa, as figuras foram em boa parte reatribuídas a elaboração própria, a terminologia de agregação e composição foi esclarecida (separando o sentido MER do UML) e a empresa foi caracterizada (embalagens flexíveis). A conexão e a extração saíram do papel. O que limita a N2 é a profundidade da exploração e da análise, que ficou presa a uma única tabela.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão é real e está comprovada: pyodbc com driver ODBC 18 sobre SQL Server, Trusted_Connection, e o print da Figura 16 mais a validação no SSMS (Figuras 13-15). É reprodutível em máquina com a instância, e o uso de autenticação Windows evita expor senha, o que é bom. Duas ressalvas: o banco se chama SANKHYA_MOCKUP, ou seja, é um mockup, enquanto o texto (p. 23) afirma ser a base usada pela empresa, e a extração inteira roda sobre uma única tabela (AD_PCPCEN), o que esvazia a etapa "Explorar" do POP, que pede o reconhecimento do modelo de dados, não de uma tabela só. Mas, como etapa de conexão, está bem servida: conexão real e reprodutível, prints do SSMS e do Python, exploração da tabela e recorte de período correto.
+
+Nota do critério: 8,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+A query de KPIs é boa: agregação condicional com CASE WHEN e LIKE, COUNT(DISTINCT), NULLIF para evitar divisão por zero e a derivação de monocamada por subtração (Figura 18). Mostra domínio de SQL acima do trivial. O problema é que nenhuma consulta usa JOIN, todas leem só a AD_PCPCEN. Isso é exatamente o oposto do que o trabalho defende na teoria, que o diferencial do banco relacional é integrar tabelas. As outras duas queries (Top 5 e tiragem por semana) são simples. Faltou cruzar tabelas, que é onde a extração relacional mostra valor. Há ainda um dado não tratado: a coluna SALDO_TIRAGEM aparece com valores fortemente negativos no SELECT *, sem nenhum comentário.
+
+Nota do critério: 6,5.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Os indicadores estão lá, com gráficos: seis KPIs em cartões, a rosca de distribuição das OPs, a tiragem por semana e a tabela Top 5 (Figuras 20-23). A leitura conecta a tiragem semanal a PCP, balanceamento de carga e programação de máquinas. Mas o fechamento do ciclo fica genérico: a seção 4.5 e a conclusão afirmam o ciclo dado→informação→conhecimento→decisão sem aterrissar numa decisão concreta tirada dos números ("a semana 19 concentrou tal volume, logo realoco tal recurso"). A interpretação descreve o que cada KPI representa mais do que extrai uma ação.
+
+Nota do critério: 6,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+O notebook foi executado, com saídas e comentários por bloco. Pesa contra: ele guarda três versões do dashboard (duas em plotly e a final em HTML), resíduo que deveria ter sido limpo; as queries são montadas por f-string interpolando as datas direto no SQL, em vez de parâmetros (aqui o risco é baixo, mas é prática a evitar); não há requirements nem README; e o ConsultaSQL.json, apesar do nome, não tem SQL nenhum, é um descritor de layout do dashboard, e ainda descreve um gráfico ("tiragem_diaria") que não bate com o semanal entregue. Resíduos da N1 também ficaram: a Figura 10 segue creditada a um canal, Cockburn e Martin são citados no texto mas não constam nas referências, e o título permanece entre aspas. Ainda assim, o código roda, está comentado por blocos e o artigo documenta cada etapa, o que sustenta a reprodução.
+
+Nota do critério: 7,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 8,0 | 25% | 2,00 |
+| Qualidade das queries e análises | 6,5 | 25% | 1,625 |
+| Indicadores gerados e interpretação | 6,5 | 20% | 1,30 |
+| Código documentado e reprodutível | 7,0 | 15% | 1,05 |
+| **Soma ponderada (85%)** | | | **5,975** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,0**. Com o ponto extra atribuído na N2, a nota final fica **8,0**.
+
+O ponto que faltou é a integração entre tabelas: uma query com JOIN respondendo uma pergunta de PCP, e uma decisão concreta saindo de um número. É o que faria o trabalho fazer jus à fundamentação que você escreveu.

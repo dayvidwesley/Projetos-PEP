@@ -89,3 +89,47 @@ Quatro frentes a endereçar:
 Nota: 9,5
 
 As cinco com profundidade: dependência parcial em chave composta, agregação frente a composição no próprio modelo, PostgreSQL normalizado frente ao esquema estrela do Power BI, ETL e ELT, e a independência do DAX em relação à origem dos dados.
+
+# Correção N2 — Any Júlia e Natália Paiva
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Extração e Análise de Indicadores de Desempenho Comercial via PostgreSQL e Power BI: Estudo de Caso na Rural Data (Nettão)
+
+Preciso ser direto logo de início. O que vocês entregaram como N2 é, no essencial, o artigo de planejamento da N1 acrescido de três figuras (o ER da p. 8, o esquema estrela da p. 11 e o diálogo de conexão da p. 9). A parte prática que define a N2 não foi executada. O próprio texto admite: a seção 4 ainda se chama "Resultados esperados" e diz que a documentação técnica "com as medidas DAX implementadas e capturas do painel em uso real" será entregue "na etapa N2 deste trabalho" (p. 12). A N2 é essa etapa. Confiram se não houve troca de arquivo no envio, porque do jeito que está a entrega não mostra dado extraído, query rodada nem indicador gerado. Avalio o que está no documento, pela rubrica da N2.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão está descrita, não comprovada. A Figura 3 (p. 9) é, nas palavras de vocês, uma "representação ilustrativa" do diálogo de conexão, com o host mascarado (db.xxxxx.supabase.co), não um print de conexão real estabelecida. O snippet M (p. 10) é um exemplo genérico de importação com placeholder. Não há extração de fato: nenhum dado retornado, nenhuma linha de resultado. Os parâmetros estão corretos (porta 5432, sslmode, Import × DirectQuery explicado), o que sustenta o procedimento no papel, mas a etapa "Conectar e extrair" do POP não foi cumprida.
+
+Nota do critério: 4,5.
+
+## Qualidade das queries e análises (peso 25%)
+
+Não há query SQL executada nem medida DAX escrita. As funções DAX aparecem citadas pelo nome (TOTALYTD, SAMEPERIODLASTYEAR, p. 10), sem fórmula. O único código é o snippet M de tipagem de colunas, que é ingestão, não análise. Os indicadores do Quadro 3 (p. 12-13) estão como "cálculo conceitual" em texto, não como consulta que roda. Não há execução para avaliar.
+
+Nota do critério: 3,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Os indicadores estão planejados, não gerados. O Quadro 3 é um catálogo de oito KPIs com fórmula conceitual; não há um único valor numérico real, nenhuma tabela de resultado, nenhum gráfico. A seção 4.2 descreve no futuro ("o painel será estruturado", "permitirão") o que o dashboard conteria. O ciclo dado→informação→conhecimento→decisão aparece só no exemplo conceitual da p. 2, o mesmo da N1. Sem dado extraído, não há decisão ancorada em evidência.
+
+Nota do critério: 3,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+Não há artefato. Sem repositório de código, sem .pbix anexado, README da N2 vazio. O único código é o snippet M ilustrativo com placeholder. Não há o que reproduzir além da descrição textual.
+
+Nota do critério: 3,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 4,5 | 25% | 1,125 |
+| Qualidade das queries e análises | 3,0 | 25% | 0,75 |
+| Indicadores gerados e interpretação | 3,5 | 20% | 0,70 |
+| Código documentado e reprodutível | 3,0 | 15% | 0,45 |
+| **Soma ponderada (85%)** | | | **3,025** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **3,6**. Com o ponto extra atribuído na N2, a nota final fica **4,6**.
+
+Reconheço que a parte de planejamento de vocês é boa: os diagramas estão corretos, a 2FN com chave composta foi reformulada certo, a documentação da conexão é tecnicamente precisa. Mas isso é qualidade de N1, e a N1 vocês já tiraram 8,8. A N2 mede execução, conectar de verdade, extrair, analisar e interpretar com dado real. Se houve engano no arquivo enviado, me procurem com urgência; se não, essa é a nota da entrega como está.

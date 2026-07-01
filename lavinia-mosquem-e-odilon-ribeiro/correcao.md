@@ -65,3 +65,47 @@ Nota do critério: 7,0.
 Nota: 9,5
 
 As cinco corretas e densas: composição com o exemplo da ordem e seus itens, o audit trail, a 2FN com itens de pedido, o Databricks como lakehouse e o lugar do NoSQL no fluxo do sensor.
+
+# Correção N2 — Lavínia Mosquem Padilha da Silva e Odilon Ribeiro Pimentel
+Data: 27/06/2026
+Trabalho: POP para Acesso a Dados em Engenharia de Produção
+
+A N2 de vocês tem um mérito e tanto: foi executada sobre um cenário corporativo real, com dado de verdade da operação de frota. As seções 4 e 5 foram preenchidas, o Databricks foi justificado como ambiente de estágio e há diagrama do cenário próprio. O que segura a nota é a baixa sofisticação do SQL e o fato de o miolo analítico não estar entregue.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão e a extração estão evidenciadas com prints reais do Databricks (p. 10-11): a navegação Catalog → lakehouse → schema logistica, o notebook no cluster, a célula %sql com a query escrita e o resultado tabular renderizado. Mil linhas extraídas, o que comprova execução de verdade. A ressalva: não há string de conexão nem código Python, o trabalho assume que o leitor já tem acesso ao workspace, e o único Python do artigo é o exemplo genérico de psycopg2 herdado da N1, que sequer corresponde ao Databricks. O text.cmd entregue está vazio.
+
+Nota do critério: 7,5.
+
+## Qualidade das queries e análises (peso 25%)
+
+Aqui está a maior fragilidade. São duas queries, e ambas são SELECT * filtrado: a primeira puxa o relatório de viagem de maio com um filtro de regional e unidade mais uma formatação de data e um cast, a segunda é uma projeção da tabela de apoio de filiais. Não há JOIN, GROUP BY nem agregação no SQL. Toda a inteligência analítica (lead time, ociosidade, quebras, a estimativa de retorno) foi feita no Power BI, em DAX/M, que não foi entregue nem mostrado. Aqui é preciso separar duas coisas: o SQL em si é trivial, mas a análise existe e é boa, só foi feita no Power BI em vez de no banco. Como o critério avalia "queries e análises", não dá para tratar como se a análise não tivesse acontecido; o desconto é por ela ter ficado fora do SQL, não por inexistir. Há ainda uma inconsistência entre as duas extrações (a regional aparece como "RG-SE/CO" numa e "RG-SUDOESTE" na outra) e um erro de aspas no nome qualificado da segunda query no arquivo, corrigido só no print.
+
+Nota do critério: 6,5.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+É o ponto alto. Os dois painéis (previsibilidade de retorno e utilização de frota) respondem perguntas operacionais concretas, e o fechamento do ciclo é muito bem feito: vocês ligam o dado bruto de status de viagem à informação de disponibilidade de frota e à decisão diária de quantas saídas programar, com a estimativa concreta de 39 veículos previstos para retorno, separando bem o painel operacional do histórico tático (renegociação de contrato de frota, manutenção). A modelagem dimensional em estrela com a fato Diarias_D-1 mostra entendimento acima do esperado. A ressalva: os indicadores só existem como imagem no PDF; as planilhas entregues são o output bruto das queries, não os indicadores calculados, então não há como conferir os números na fonte.
+
+Nota do critério: 8,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+O SQL está num arquivo à parte, legível, com cabeçalho por query. Mas não há requirements, README, notebook exportado nem o DAX/M do Power BI, que é onde mora o trabalho de fato. O pipeline de transformação (Power Query, relacionamentos, medidas, painéis) está só descrito em texto e mostrado em prints, não reproduzível a partir do que foi entregue. O text.cmd está vazio e a numeração de figuras está bagunçada (três "Figura 4" diferentes).
+
+Nota do critério: 6,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 7,5 | 25% | 1,875 |
+| Qualidade das queries e análises | 6,5 | 25% | 1,625 |
+| Indicadores gerados e interpretação | 8,5 | 20% | 1,70 |
+| Código documentado e reprodutível | 6,0 | 15% | 0,90 |
+| **Soma ponderada (85%)** | | | **6,10** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,2**. Com o ponto extra atribuído na N2, a nota final fica **8,2**.
+
+O trabalho de vocês tem um cenário e uma leitura de negócio maduros; o que falta é levar parte da análise para o SQL (um GROUP BY que já entregue a contagem por status, por exemplo, em vez de trazer mil linhas e agregar no BI) e versionar as medidas do Power BI. O que faltou foi pelo menos uma query com agregação no próprio SQL e a entrega das medidas DAX do Power BI.

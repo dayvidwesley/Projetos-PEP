@@ -63,3 +63,47 @@ Nota do critério: 6,0.
 Nota: 8,0
 
 Quatro respostas corretas (o ciclo do dado ao conhecimento, a escolha do relacional, a 2FN frente à 3FN e o banco no Model do MVC). Na última, sobre implementar composição e agregação em PostgreSQL e MongoDB, faltou fechar a resposta.
+
+# Correção N2 — Petter de Oliveira Braga Attux
+Data: 27/06/2026
+Trabalho: Acesso, Extração e Análise de Dados em Sistema ERP com PostgreSQL: Execução do Procedimento Operacional Padrão sobre Banco de Dados Real
+
+A N2 é enxuta (sete páginas) mas faz o ciclo inteiro de forma honesta: conecta ao ERP fornecido, extrai com quatro queries pertinentes, deriva indicadores gerenciais com números e fecha o ciclo dado→decisão de maneira explícita. Resolveu a principal lacuna de formatação da N1, com Resultados e Conclusão preenchidos.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão ao banco erp está documentada com os parâmetros no Quadro 1 (host, porta 5432, banco, usuário) e o passo a passo no DBeaver (seção 2.3), reprodutível por quem tem acesso. As ressalvas: não há print da tela conectada nem código Python, a conexão e a extração foram feitas só pelo Editor SQL do DBeaver, e a etapa "Explorar" do POP ficou em prosa, sem o diagrama do modelo de dados real que cobrei na N1. O MongoDB, que aparecia na N1, saiu da prática (você assumiu o PostgreSQL, o que é uma escolha legítima, mas a comparação prática não acontece).
+
+Nota do critério: 7,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+As quatro consultas são pertinentes e bem construídas. A de ranking de produção usa JOIN com produto e agregação; a de produção × vendas usa SUM(CASE WHEN ...) para pivotar produzido contra vendido, que é uma boa técnica; a de saldo de estoque é a mais elaborada, com duplo JOIN (produto e tipo_movimento) e três agregações condicionais por natureza. Todas respondem perguntas reais de EP (capacidade, absorção pelo mercado, sazonalidade, ruptura). Não há query trivial demais nem errada. O teto do critério fica em não usar subquery, CTE ou window function, recursos que apareceriam naturalmente em análises mais profundas. Um detalhe a conferir: a coluna "Diferença" do Quadro 7 não é produzida pela query mostrada.
+
+Nota do critério: 7,5.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Os indicadores gerenciais da seção 5 estão com números e bem amarrados: concentração da produção (cerca de 51% em dois produtos), taxa de absorção pelo mercado por item, sazonalidade de cerca de 18% e risco de ruptura no Booster Duplo. E a seção 6 fecha o ciclo dado→informação→conhecimento→decisão de forma explícita e numérica, com decisões concretas (priorizar capacidade nos dois itens de maior volume, atenção à reposição do Booster Duplo). O que falta para subir é forma: os indicadores estão só em quadros, sem nenhum gráfico, e a etapa "Analisar" pede tabelas e gráficos.
+
+Nota do critério: 7,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+As queries têm comentário de cabeçalho e estão legíveis nos quadros. Mas não há código Python, requirements ou README, e a reprodução depende de reescrever as consultas no DBeaver com as credenciais do Quadro 1. Sem nenhum artefato versionado na pasta além do PDF. Para um trabalho que defende a autonomia analítica do engenheiro, um script que conecta e roda as quatro queries fecharia bem o argumento.
+
+Nota do critério: 6,5.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 7,0 | 25% | 1,75 |
+| Qualidade das queries e análises | 7,5 | 25% | 1,875 |
+| Indicadores gerados e interpretação | 7,5 | 20% | 1,50 |
+| Código documentado e reprodutível | 6,5 | 15% | 0,975 |
+| **Soma ponderada (85%)** | | | **6,10** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,2**. Com o ponto extra atribuído na N2, a nota final fica **8,2**.
+
+Trabalho correto e bem fechado, mas curto. Faltou um gráfico de pelo menos um indicador (a curva de concentração da produção, por exemplo) e o diagrama do modelo de dados que extraiu.

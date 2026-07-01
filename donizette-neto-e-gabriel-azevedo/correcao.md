@@ -81,3 +81,45 @@ Quatro frentes principais:
 Nota: 9,0
 
 Respostas corretas: dependência funcional e parcial, a entidade itens_pedido em N:M, o ON DELETE CASCADE, a polyglot persistence no cenário da ferragista e o ciclo do dado até a decisão com uma consulta SQL ligando dado e informação.
+
+# Correção N2 — Donizette Neto e João Gabriel Azevedo
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Extração e Análise de Dados em Banco de Dados no Contexto da Engenharia de Produção
+
+Vocês endereçaram as frentes conceituais da N1: a entidade associativa itens_pedido entrou no diagrama (Figura 1, p. 9), as formas normais foram reescritas em terminologia técnica (p. 8-9, com Elmasri e Navathe), e a seção 5 de Considerações Finais foi adicionada. E, principalmente, a conexão saiu do papel.
+
+## Conexão e extração de dados (peso 25%)
+
+Esse é o ponto forte da entrega e o que mais cobrei na N1. A conexão é real e está comprovada: MySQL 8.0 na Aiven com SSL, código carregando credenciais por .env (Figura 4), a função inicializar_banco_de_dados() executando mysql.connector.connect(**config) e o print do terminal na Figura 8 (p. 17) mostrando a conexão estabelecida e 50 clientes retornados. É reprodutível e cuidadoso com a LGPD, com as credenciais fora do código.
+
+Nota do critério: 8,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+Aqui mora a limitação. As únicas queries SQL que vocês de fato exibem rodando são duas, e ambas são de validação: um COUNT(*) em clientes e um SELECT com LIMIT 10 em produtos (p. 14). As análises que importam, faturamento por produto, por cliente e por fornecedor, que aparecem no dashboard da Figura 9, implicam JOIN, GROUP BY e SUM, mas o SQL (ou o DAX) que as gera não está no artigo. A Figura 7 mostra a tela do Power BI com uma instrução SQL começando um JOIN entre itens_pedido e pedido, só que a consulta aparece cortada. A extração séria existe, os números do dashboard provam isso, mas vocês não a mostraram. Para um trabalho cujo tema é extrair dados do banco, deixar a query principal fora do texto custa caro.
+
+Nota do critério: 6,5.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+O dashboard (Figura 9) traz indicadores úteis de gestão: faturamento total de R$ 685,49 mil, ticket médio e os rankings de faturamento por produto, por cliente e por fornecedor. A interpretação amarra isso a decisão concreta, qual produto comprar em maior quantidade, quais marcas têm mais saída, reposição de estoque, gestão de fornecedores (seção 4 e Considerações Finais, p. 18). Fecha o ciclo dado→decisão, ainda que num registro mais qualitativo, sem um número-gatilho específico.
+
+Nota do critério: 8,0.
+
+## Código documentado e reprodutível (peso 15%)
+
+O código de conexão está bem feito: docstring, comentários, tratamento de erro com try/except, .env. Boa engenharia. Pesa contra a ausência do código que gera os indicadores (não dá para reproduzir o dashboard a partir do artigo), a falta de requirements.txt/README e o fato de a pasta N2 do repositório ter só um placeholder de 1 byte, sem scripts versionados. Some-se a divergência de data da referência Bazzotti e Garcia (2003 no texto, 2006 na lista) e a Figura 1, que ainda mantém id_produto dentro de pedido, resíduo do modelo antigo que convive de forma incoerente com a associativa itens_pedido. A duplicação da "Figura 4" que apontei na N1 também persiste.
+
+Nota do critério: 7,5.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 8,0 | 25% | 2,00 |
+| Qualidade das queries e análises | 6,5 | 25% | 1,625 |
+| Indicadores gerados e interpretação | 8,0 | 20% | 1,60 |
+| Código documentado e reprodutível | 7,5 | 15% | 1,125 |
+| **Soma ponderada (85%)** | | | **6,35** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,5**. Com o ponto extra atribuído na N2, a nota final fica **8,5**.

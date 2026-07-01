@@ -79,3 +79,45 @@ Quatro frentes a endereçar:
 Nota: 9,0
 
 Respostas corretas: ciclo ilustrado com SQL, o teorema CAP justificando o BASE, o nome_produto violando a 2FN, CASCADE frente a RESTRICT e SET NULL, e a diferença entre MVC e Clean Architecture.
+
+# Correção N2 — Gabriel Campos e Rafael Campos
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Conexão com Bancos de Dados PostgreSQL e MongoDB
+
+A N2 de vocês explora de verdade os dois bancos fornecidos e endereça a frente central que apontei na N1, a modelagem do cenário real. O artigo cresceu para 52 páginas, e as seções 6 e 7 (indicadores ERP e MES) e a 8 (Considerações Finais) estão cheias e robustas.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão está bem documentada nos dois SGBDs, com prints reais: pgAdmin no Postgres remoto (Figuras 19-20, p. 25-26) e mongosh/Compass no Mongo (Figura 22, p. 28). Gostei especialmente da exploração por catálogo, vocês consultam information_schema.columns filtrando o schema erp (Figura 21) e usam getCollectionNames/findOne/countDocuments no Mongo. É a etapa "Explorar" feita com método. A ressalva: tudo foi feito por ferramenta gráfica, e o texto da p. 34 chama isso de "conexão programática estabelecida na seção 4.1", o que não confere, porque não há código psycopg2 ou pymongo em lugar nenhum. A N1 pedia esse código.
+
+Nota do critério: 8,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+Ponto mais forte do trabalho. São 13 indicadores, 7 consultas SQL no ERP e 6 pipelines no MES. No SQL há JOINs triplos de verdade (faturamento por cliente cruzando pedido_venda, cliente e item_pedido, Figura 27; custo por fornecedor, Figura 28; aderência plano × previsão, Figura 30; DRE reconstruída por grupo, Figura 31). No Mongo, o uso de $unwind sobre o array embutido de paradas (Figura 33) é o trecho tecnicamente mais bonito, porque ataca a natureza documental do dado, e vocês ainda validam o resultado cruzando a soma do tempo parado entre os Indicadores 8 e 9. As poucas queries triviais (status que retornou um único valor) foram honestamente justificadas como limite da base, não erro de vocês.
+
+Nota do critério: 8,5.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Os 13 indicadores estão sintetizados nas Tabelas 2 e 3, e a Tabela 2 traz uma coluna de "Implicação Gerencial" que é exatamente o fechamento que cobro: estoque de segurança fixo em 50% que precisa ser refinado por lead time e criticidade, Pareto de clientes apontando retenção, corretiva mais cara justificando ampliar a preventiva, paradas de setup pedindo SMED. Decisão concreta em cima de cada número. O que segura a nota é a forma: todos os indicadores são tabelas e saídas de console, não há um gráfico sequer, e a rubrica da N2 pede tabelas e gráficos. Um Pareto e uma curva ABC plotados dariam muito mais força à leitura.
+
+Nota do critério: 7,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+O SQL e os pipelines estão todos visíveis como texto/print e são reproduzíveis manualmente. Mas não há script Python, requirements ou README na pasta N2, só o PDF (o N2.md está vazio). As bibliotecas que a metodologia declara (psycopg2, pymongo, pandas) não chegam a aparecer em código, pandas nunca é usado. A Figura 16 ainda repete a Figura 9, resíduo da N1 que não foi limpo. Reproduzir o trabalho hoje exige refazer tudo nas ferramentas gráficas, na mão.
+
+Nota do critério: 6,5.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 8,0 | 25% | 2,00 |
+| Qualidade das queries e análises | 8,5 | 25% | 2,125 |
+| Indicadores gerados e interpretação | 7,5 | 20% | 1,50 |
+| Código documentado e reprodutível | 6,5 | 15% | 0,975 |
+| **Soma ponderada (85%)** | | | **6,60** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,8**. Com o ponto extra atribuído na N2, a nota final fica **8,8**.

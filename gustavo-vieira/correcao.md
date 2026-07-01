@@ -110,3 +110,45 @@ Quatro frentes a endereçar:
 Nota: 9,0
 
 As cinco corretas: MVC, hexagonal e Clean Architecture bem distinguidas, histórico dos bancos, ACID e BASE no seu cenário, as limitações concretas do SQLite (lock de escrita, volume, arquitetura cliente-servidor) e a especificidade do engenheiro de produção com o 5W2H.
+
+# Correção N2 — Gustavo Vieira Vale
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Extração e Análise de Dados de Tarefas Administrativas em um Banco de Dados Relacional
+
+Considero resolvidos os pontos que você levantou na revisão da N1 (o padrão SBPO com a logo da UFG no lugar da logo do evento, e o escopo teórico da N1), então não repenalizo formatação por template aqui. A N2 executa o POP de ponta a ponta e está num nível alto.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão está documentada com código (Código 1, p. 17, e a célula 4 do notebook), com busca robusta do arquivo, PRAGMA foreign_keys = ON e o output real registrando a versão do SQLite e "Conexão realizada com sucesso". É reprodutível, com período parametrizado e queries usando :data_inicio/:data_fim. Mantenho a observação da N1, que você assume: segue tudo em SQLite, sem o exemplo equivalente em PostgreSQL ou MySQL que sugeri (a frente 4 não foi cumprida, só citada como possibilidade). Um detalhe operacional: o arquivo .sqlite não parece ter sido entregue na pasta, o que impede a reprodução literal por terceiros.
+
+Nota do critério: 8,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+Aqui o trabalho brilha. O notebook traz uma camada de validação de dados que está acima do roteiro: PRAGMA integrity_check, foreign_key_check e checagens de coerência cronológica e de nulos por status (célula 10). E o SQL é avançado de verdade, window function para participação percentual (célula 17), CTE recursiva gerando o calendário mensal para a série de aberturas e conclusões (célula 29), CASE WHEN duplo para a taxa de atraso, e comparação do tempo real contra o tempo padrão (célula 23). Uma observação para alinhar: a taxa de atraso do PDF (Código 14) só conta data_conclusao > data_prazo, enquanto a versão completa e correta, que também pega as pendentes com prazo vencido, está só no notebook (célula 21). Quem reproduzir pelo PDF não chega aos 62,50%.
+
+Nota do critério: 9,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Seis indicadores, todos com tabela e gráfico, mais o painel-resumo: volume por setor, backlog, taxa de atraso (com a média entre setores marcada no gráfico), tempo médio contra o padrão, produtividade e retrabalho, além da evolução mensal mostrando saldo negativo nos três meses. A interpretação é madura e tecnicamente honesta, você trata indicador alto como sinal para investigação, não como prova de ineficiência, declara as premissas e fecha no plano de ação 5W2H amarrado a evidência específica (redistribuir o backlog de Operações, redesenhar o fluxo de Suporte de Sistemas). É o ciclo dado→decisão fechado com critério.
+
+Nota do critério: 9,0.
+
+## Código documentado e reprodutível (peso 15%)
+
+Notebook bem comentado, com docstrings nas funções utilitárias, células markdown por etapa e as fórmulas dos indicadores declaradas antes do cálculo, "para que o resultado seja auditável". Gera 21 artefatos e encerra a conexão ao final. Pesa contra: não há requirements.txt nem README na entrega, o arquivo .sqlite não acompanha, e a produtividade por funcionário (Figura 8) exibe nomes individuais com sufixo numérico; mesmo com a ressalva de que não é avaliação de desempenho, é um ranking nominal que merece atenção de LGPD, ainda que os dados sejam modificados.
+
+Nota do critério: 7,5.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 8,0 | 25% | 2,00 |
+| Qualidade das queries e análises | 9,0 | 25% | 2,25 |
+| Indicadores gerados e interpretação | 9,0 | 20% | 1,80 |
+| Código documentado e reprodutível | 7,5 | 15% | 1,125 |
+| **Soma ponderada (85%)** | | | **7,175** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **8,4**. Com o ponto extra atribuído na N2, a nota final fica **9,4**.

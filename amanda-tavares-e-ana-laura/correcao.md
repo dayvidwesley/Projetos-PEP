@@ -88,3 +88,47 @@ Quatro frentes a endereçar:
 Nota: 9,5
 
 Respostas precisas: chave composta veículo/campanha, ACID e BASE no contexto do Salesforce, composição da ordem de venda, conhecimento frente a decisão e a separação de camadas que mantém o POP válido mesmo se a fonte mudar.
+
+# Correção N2 — Amanda Tavares e Ana Laura
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Extração e Análise de Indicadores Comerciais e de Estoque via Salesforce CRM: Estudo de Caso em Unidade de Concessionária Premium
+
+Vocês endereçaram as quatro frentes que listei na N1: cabeçalho corrigido (só a dupla, p. 1), diagrama ER das entidades do Salesforce (Figura 1), código pandas lendo os dois CSVs com indicadores e gráficos, e a reformulação da 2FN com chave composta (veiculo_id + campanha_id) e da composição (Ordem de Venda × Itens, com ON DELETE CASCADE). A correção da composição inclusive está dita com todas as letras no texto, reconhecendo o deslize aritmético da N1. Bom trabalho de revisão.
+
+## Conexão e extração de dados (peso 25%)
+
+O notebook conecta de fato: sqlite3 sobre o porsche_go.db, ingestão dos CSVs via pandas, e roda fim a fim no Colab. A conexão é reprodutível e o código está na seção 3.5 (p. 9) e no notebook. Mantenho a ressalva da N1, que vocês já assumem: não é conexão direta ao Salesforce, é um SQLite local alimentado por CSV exportado. É defensável pela restrição de acesso por perfil, e vocês fecharam bem citando a evolução via simple_salesforce/SOQL. O que ainda falta para o topo do critério é a conexão à fonte real; do jeito que está, a autonomia analítica para na exportação manual do CSV.
+
+Nota do critério: 8,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+São quatro consultas SQL que respondem perguntas reais da concessionária: variação orçado × realizado, veículos críticos com mais de 90 dias em pátio, margem média por situação (essa com COUNT, AVG e GROUP BY, a mais rica) e o giro de estoque. O ferramental está correto. Mas há dois problemas que afetam a confiança no resultado. Primeiro, os números do Quadro 5 (orçado de março) não saem do CSV que vocês entregaram: o budget_ficticio.csv traz orc_mar = 15 para Volume Novos, e o quadro reporta 18, que é a soma de janeiro, fevereiro e março. Rodando a query como está escrita, as variações de "+100%" e "+109%" não se reproduzem. Ou o CSV entregue diverge do usado, ou a query somou o ano todo achando que era março. Segundo, o GROUP BY por situação (Quadro 7) trata "TEST DRIVE", "TEST DRIVE - NORMAL" e afins como categorias distintas, porque a coluna mistura status; faltou normalizar antes de agregar, e isso fragmenta a análise. O giro, por fim, divide vendas de março pelo estoque de maio e usa estoque atual como se fosse médio, o que o próprio Quadro 4 definia diferente.
+
+Nota do critério: 7,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+A leitura dos consignados é o ponto alto: vocês identificam margem média de -4,42% nos veículos em consignação, cruzam com dias em pátio e chegam a uma decisão de gestão concreta, revisar a política de consignação, com o caso do Panamera 4S (182 dias, margem -12,93%) como gatilho (p. 12). É exatamente o fechamento dado→decisão que essa parte cobra. Os dois gráficos (orçado × realizado e dias em pátio com a linha de corte em 90 dias) sustentam a interpretação.
+
+Nota do critério: 8,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+O notebook é organizado em etapas com markdown explicando cada uma, valida arquivos e encoding antes de carregar, e tem comentários. Pesa contra: o README está vazio (1 byte), não há requirements.txt (as dependências entram via pip inline), e o Quadro 2 lista seaborn como biblioteca do POP que o código nunca usa. Some-se a divergência do Quadro 5 acima, que no fundo é um problema de reprodutibilidade, o dado entregue não reproduz o resultado publicado.
+
+Um ponto de atenção que extrapola a nota: o estoque_04052026.csv versionado traz chassi e preços reais identificando "PORSCHE GOIANIA", enquanto o artigo diz proteger o nome da empresa por LGPD. O budget é fictício, mas o estoque com chassi real foi para o repositório. Vale despublicar ou anonimizar.
+
+Nota do critério: 7,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 8,0 | 25% | 2,00 |
+| Qualidade das queries e análises | 7,0 | 25% | 1,75 |
+| Indicadores gerados e interpretação | 8,5 | 20% | 1,70 |
+| Código documentado e reprodutível | 7,0 | 15% | 1,05 |
+| **Soma ponderada (85%)** | | | **6,50** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,6**. Com o ponto extra atribuído na N2, a nota final fica **8,6**.

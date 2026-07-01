@@ -94,3 +94,47 @@ Cinco frentes principais:
 Nota: 9,5
 
 Respondeu as cinco em texto completo: histórico dos bancos por década, as três formas normais com exemplo, agregação e composição, o ciclo do dado até a decisão e ACID frente a BASE, tudo bem desenvolvido.
+
+# Correção N2 — Gabriel Costa e Luís Humberto
+Data: 27/06/2026
+Trabalho: Procedimento Operacional Padrão para Extração e Análise de Dados em Banco de Dados Aplicado à Engenharia de Produção
+
+Vocês fecharam bem as frentes teóricas da N1: histórico dos bancos por década, formas normais com exemplo do próprio cenário, agregação e composição, o ciclo do dado, e as seções 4 e 5 agora preenchidas. A conexão aos dois bancos também está comprovada. O problema da N2 está na execução analítica, que ficou aquém do que o resto do trabalho prometia.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão é real e documentada nos dois ambientes, com prints próprios: DBeaver conectado ao schema erp mostrando as tabelas (Figura 4 e o PNG de acesso) e o Compass no banco mes com as seis coleções e a contagem de documentos. Os parâmetros de host, porta e banco estão no texto (p. 11-12). Isso comprova o acesso aos dois SGBDs. O que falta é a string/URI completa e, sobretudo, código: a conexão foi feita só por ferramenta gráfica, sem o psycopg2 que a N1 pediu e que o próprio Apêndice A.15 afirma ter incluído, mas que não aparece em nenhuma das 25 páginas.
+
+Nota do critério: 8,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+Aqui está a maior fragilidade. O artigo não mostra nenhuma query SQL nem nenhum pipeline do Mongo. A seção 4.1 diz genericamente que "foram realizadas consultas em SQL" e que o DBeaver permite exportar para CSV, mas não exibe o texto de nenhuma consulta. A extração que de fato aparece é a exportação bruta das tabelas e coleções: os seis CSVs mes.* e as abas do DRE_.xlsx são dumps, não resultados de query. Extrair não é exportar a tabela inteira, é perguntar ao banco. E os dados do MES, que são ricos (tempo de parada, peças boas, refugo, o array de paradas), foram exportados e não analisados, nenhum indicador de produção saiu deles.
+
+Nota do critério: 5,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+O único indicador gerado é a DRE de 2025 (p. 19-20), e ela está bem montada, cruzando lancamento_contabil, grupo_dre e conta_contabil até receita bruta, líquida e lucro. É uma consolidação contábil correta. Mas é só ela, não há gráfico, e a DRE aparece digitada no texto, sem a query ou a planilha que a produz (a xlsx só tem as tabelas-fonte, não a DRE calculada). O fechamento do ciclo fica conceitual: a discussão fala em complementaridade ERP/MES de forma teórica, sem uma decisão de Engenharia de Produção saindo de um indicador. Com os dados do MES na mão, dava para calcular disponibilidade, refugo e OEE e decidir sobre manutenção; isso ficou de fora. Ainda assim, a DRE é um indicador econômico-financeiro real e contabilmente correto, montado cruzando várias tabelas do ERP, e isso conta.
+
+Nota do critério: 6,0.
+
+## Código documentado e reprodutível (peso 15%)
+
+Não há código no artigo. O Apêndice A.15 declara que foi incluído um trecho Python com psycopg2, cursor e DataFrame, mas ele não consta no texto, e o readme.md da pasta está vazio. A DRE não tem rastreabilidade (números no texto, sem a query). Some-se que o Apêndice A é um log de 20 itens narrando o que mudou e pedindo reconsideração de nota, o que é atípico num artigo ENEGEP; o lugar dessas explicações é a mensagem de entrega, não o corpo do artigo.
+
+Nota do critério: 4,5.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 8,0 | 25% | 2,00 |
+| Qualidade das queries e análises | 5,0 | 25% | 1,25 |
+| Indicadores gerados e interpretação | 6,0 | 20% | 1,20 |
+| Código documentado e reprodutível | 4,5 | 15% | 0,675 |
+| **Soma ponderada (85%)** | | | **5,125** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **6,0**. Com o ponto extra atribuído na N2, a nota final fica **7,0**.
+
+A base do trabalho (conexão, modelo, DRE) é sólida; o que faltou foi transformar os dados extraídos do MES em consultas e indicadores. É lacuna que dá para fechar rápido: bastava ao menos uma query SQL e um pipeline do Mongo mostrando a extração e um indicador de produção saindo dos dados do MES.

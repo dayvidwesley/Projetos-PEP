@@ -100,3 +100,47 @@ Cinco frentes:
 Nota: 8,5
 
 As cinco corretas: SIG frente a ERP e seus níveis de decisão, funções SQL frente a relacionamento UML, as formas normais com violação em ordens de produção, a conexão com psycopg2 e a polyglot persistence. A conexão ficou descrita em texto, faltou o código literal que a pergunta pedia.
+
+# Correção N2 — Geovana Gvas e Maria Eduarda
+Data: 27/06/2026
+Trabalho: Extração Autônoma de Dados Operacionais: um Procedimento Padrão para o Engenheiro de Produção
+
+Antes da avaliação por critério, uma observação estrutural que pesa sobre o conjunto: a parte prática da N2 está só no notebook. O PDF que vocês chamam de "CORRIGIDO" ainda traz a seção 4 como "Resultados Esperados", redigida no futuro ("espera-se obter"), e a seção 5 ainda diz que "a N2 apresentará a execução completa". Ou seja, o artigo entregue é a N1 revisada, e os resultados reais ficaram fora dele, num notebook desconectado. Para a N2, o artigo precisa apresentar os resultados executados; do jeito que está, ele não fecha o ciclo que o notebook chega a rodar.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão é real e funciona: o notebook cria a engine SQLAlchemy sobre psycopg2, imprime "Conectado!" e lista as 26 tabelas do schema erp via information_schema (células 2-3). A autonomia analítica que vocês defendem foi de fato demonstrada. Duas ressalvas sérias, porém. A primeira é de segurança: a string de conexão com a senha em texto puro está repetida em cerca de seis células, e esse notebook vai para o repositório público. Troquem por variável de ambiente e troquem a senha. A segunda é que não há tratamento de erro de conexão (a própria célula 0 mostra o pip install do psycopg2 falhando), o que a Fase 1 do texto prometia.
+
+Nota do critério: 7,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+O SQL em si é quase todo SELECT *; o trabalho analítico de verdade está em pandas, com merges e groupby, e isso é legítimo. As análises são pertinentes: curva ABC por quantidade e por faturamento, gap entre produção planejada e vendas, erro de planejamento, cobertura e giro de estoque. A mecânica do pandas está correta. O que atrapalha é a falta de crítica dos números: o giro de estoque sai na casa de 1600 porque vocês usaram estoque inicial onde devia ser estoque médio, e o faturamento total e o ticket médio aparecem inflados sem nenhum questionamento. Some-se a muita repetição, a mesma curva ABC e o mesmo faturamento mensal recalculados em dois ou três blocos diferentes; o notebook não foi limpo.
+
+Nota do critério: 6,5.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+O volume de indicadores gerados é forte: são cerca de catorze, vários sofisticados para o nível (curva ABC por quantidade e por faturamento, gap entre plano e vendas, erro de previsão por produto, cobertura e giro de estoque), com sete gráficos efetivamente plotados. A geração foi bem feita. O que falta por completo é a interpretação: o notebook é só código e prints, sem uma célula de discussão, e o PDF trata os resultados no futuro. Em nenhum lugar uma decisão concreta é amarrada a um indicador ("a curva ABC manda priorizar tais itens", "o gap de abril sugere tal ação"). A etapa "Interpretar" do POP, que é onde o engenheiro de produção agrega valor, ficou em aberto. E um indicador com erro evidente (giro de 1600) atravessa o trabalho sem ser notado, o que mostra que a leitura crítica do resultado não aconteceu. A nota reconhece a geração dos indicadores; o desconto é pela interpretação ausente e pelo giro errado.
+
+Nota do critério: 6,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+O notebook tem pouquíssimos comentários, nenhuma célula markdown explicando as fases, sem README e sem requirements. Há um NameError na célula 96 (curva_abc usada antes de ser definida), o que mostra que ele não roda de cima a baixo, e o pip install da célula 0 falhou. Com a senha hardcoded, a reprodutibilidade e a segurança ficam comprometidas ao mesmo tempo. Por outro lado, a conexão roda, as queries são legíveis e o fluxo cobre as cinco fases, então o código entrega resultado, o que conta a favor.
+
+Nota do critério: 6,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 7,0 | 25% | 1,75 |
+| Qualidade das queries e análises | 6,5 | 25% | 1,625 |
+| Indicadores gerados e interpretação | 6,5 | 20% | 1,30 |
+| Código documentado e reprodutível | 6,0 | 15% | 0,90 |
+| **Soma ponderada (85%)** | | | **5,575** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **6,6**. Com o ponto extra atribuído na N2, a nota final fica **7,6**.
+
+O que faltou é claro: o artigo com a seção de Resultados de fato preenchida com os números do notebook, três ou quatro decisões concretas amarradas aos indicadores, e o giro recalculado. E, com urgência, fica o pedido de tirar a senha do notebook que está no repositório.

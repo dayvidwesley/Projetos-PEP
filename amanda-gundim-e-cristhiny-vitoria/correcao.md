@@ -70,3 +70,47 @@ Três frentes a endereçar antes da entrega prática:
 Nota: 9,0
 
 As cinco respostas corretas e bem colocadas: 2FN com dependência parcial, ACID e BASE, o ciclo do dado até a decisão, o teste que separa agregação de composição e o banco como detalhe de infraestrutura na Clean Architecture.
+
+# Correção N2 — Amanda Gundim e Cristhiny Vitória
+Data: 27/06/2026
+Trabalho: Análise Comparativa entre Bancos de Dados Relacionais e Não Relacionais: um Estudo Prático com PostgreSQL e MongoDB
+
+Vocês fecharam as duas frentes estruturais que cobrei na N1: o artigo agora tem as seções 4 e 5 cheias (p. 26-44) e a comparação prática PostgreSQL × MongoDB saiu do plano e virou execução sobre os dois bancos fornecidos. É um avanço real.
+
+## Conexão e extração de dados (peso 25%)
+
+A conexão está documentada nos dois bancos: parâmetros do Postgres (host, porta 5432, banco erp, usuário) na p. 21 e a URI do Mongo na p. 31, com prints do DBeaver e do Compass. O problema é que a extração não acontece dentro do SGBD. Vocês conectam pela ferramenta gráfica, exportam as coleções do Mongo para CSV (p. 31-33) e levam tudo para o Power BI. A etapa "Extrair" do POP pedia consulta rodando no banco (SQL ou pipeline), e isso não aparece: quem reproduz o trabalho de vocês reproduz um relatório de Power BI, não uma consulta ao banco. Some-se a isso o print trocado, a Figura 7 (p. 22) tem legenda "Servidor PostgreSQL conectado via DBeaver" mas mostra a tela do Compass. Confiram, porque é a evidência da conexão do Postgres que fica comprometida.
+
+Nota do critério: 7,0.
+
+## Qualidade das queries e análises (peso 25%)
+
+Não há SQL nem pipeline de agregação do Mongo. Toda a análise foi feita em DAX no Power BI (p. 30-31, 40-42). Avaliando o que de fato foi entregue, as medidas DAX têm complexidade real: CALCULATE com filtro de grupo de DRE, SUMX iterando quantidade por preço para a receita, e a decomposição do OEE em disponibilidade, performance e qualidade. O trecho mais forte é a Tabela_Paradas (p. 42), onde vocês usam UNION/SELECTCOLUMNS/FILTER para desaninhar o array de paradas que vem do documento do Mongo, mostrando que entenderam a diferença estrutural entre o dado relacional e o documental e souberam tratá-la. O que pesa contra é o desalinhamento com o que a N2 pede: a inteligência analítica está toda na camada de BI, depois da extração, e não em consulta ao próprio banco. Para um trabalho que se propõe a comparar PostgreSQL e MongoDB na prática, faltou mostrar a mesma pergunta respondida com um SELECT no Postgres e com um aggregate no Mongo.
+
+Nota do critério: 7,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Aqui o trabalho se destaca. Os painéis cobrem comercial, produção, financeiro e manutenção (Figuras 12 a 20), e a interpretação não é genérica. Vocês lêem o OEE de 80,72% identificando a disponibilidade (~89%) como o componente que mais derruba o índice frente ao benchmark de 85% (p. 35-37), apontam a concentração de 22,27% do faturamento num único cliente como risco comercial (p. 26), e ligam o excesso de manutenção corretiva (159 contra 48 preventivas) à recomendação de reforçar a preventiva (p. 38-39). É o ciclo dado→informação→conhecimento→decisão fechando em decisão concreta, que é o que cobro nessa parte. A Tabela 2 (p. 43), consolidando a comparação dos dois SGBDs a partir da experiência real do trabalho, amarra bem.
+
+Nota do critério: 9,0.
+
+## Código documentado e reprodutível (peso 15%)
+
+O que está documentado são as medidas DAX, transcritas no corpo e legíveis, mais os dois arquivos .pbix que acompanham a entrega. Não há código Python, nem SQL, nem o passo a passo reprodutível da exportação das coleções do Mongo (que foi manual no Compass), nem requirements ou README. A N1 previa psycopg2 e pymongo no procedimento, e nada disso foi executado. A reprodutibilidade fica presa a quem tem Power BI e refaz os cliques.
+
+Nota do critério: 6,5.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 7,0 | 25% | 1,75 |
+| Qualidade das queries e análises | 7,0 | 25% | 1,75 |
+| Indicadores gerados e interpretação | 9,0 | 20% | 1,80 |
+| Código documentado e reprodutível | 6,5 | 15% | 0,975 |
+| **Soma ponderada (85%)** | | | **6,275** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,4**. Com o ponto extra atribuído na N2, a nota final fica **8,4**.
+
+Um recado para fechar: o trabalho de vocês é competente na leitura dos indicadores, mas escorrega justamente no que dá nome a ele, a comparação prática entre os dois SGBDs ficou na camada do Power BI, não no banco.

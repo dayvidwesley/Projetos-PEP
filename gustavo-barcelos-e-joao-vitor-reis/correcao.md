@@ -103,3 +103,47 @@ Cinco frentes:
 Nota: 9,5
 
 As cinco bem desenvolvidas: histórico dos bancos, justificativa de cada SGBD, agregação e composição, a 2FN com dependência parcial e ACID frente a BASE apoiado no teorema CAP.
+
+# Correção N2 — Gustavo Barcelos e João Vitor Reis
+Data: 27/06/2026
+Trabalho: Análise de Banco de Dados ERP Industrial em PostgreSQL: Modelagem Relacional, Indicadores de PCP e Suporte à Tomada de Decisão Industrial
+
+A N2 de vocês tem um conjunto de queries SQL de alto nível, e a cobertura analítica é ampla e bem fechada em decisão. Mas o trabalho repete a falha mais grave da N1 e deixa de cumprir a etapa "Conectar" do POP, o que segura a nota.
+
+## Conexão e extração de dados (peso 25%)
+
+A extração via SQL está sólida, com as oito consultas reproduzidas e parametrizadas por período. O problema é a etapa "Conectar": não há print de tela do DBeaver conectado nem código Python de conexão, nenhuma string, nenhum psycopg2. A N1 cobrou exatamente isso, e a metodologia da N2 cita DBeaver, mas a conexão estabelecida não é evidenciada. Some-se a troca de SGBD entre a N1 (MySQL) e a N2 (PostgreSQL) sem uma linha justificando a mudança em função do cenário. As queries rodam contra o banco, mas o "Conectar" do POP ficou em aberto.
+
+Nota do critério: 6,5.
+
+## Qualidade das queries e análises (peso 25%)
+
+É o ponto alto. As consultas vão bem além do trivial: window function para percentual do total (Código 1), CTEs encadeadas na aderência do PCP (Código 9, a melhor) e SUM(...) OVER (ORDER BY ... DESC) para o percentual acumulado da curva ABC de produtos e de insumos (Códigos 15 e 17). Cada uma responde uma pergunta real de PCP, mix de vendas, Pareto de clientes, aderência do plano mestre, criticidade de insumos, resultado por centro de custo. Não há query frouxa nem errada. Vocês ainda tiveram a honestidade de mostrar e corrigir um bug do próprio código na seção 7.2 (o head(5) que pegava os de menor consumo). Domínio real de SQL.
+
+Nota do critério: 9,0.
+
+## Indicadores gerados e interpretação (peso 20%)
+
+Oito indicadores, cada um com tabela e gráfico, e a interpretação aterrissa em decisão concreta: concentração de 52,38% das vendas em duas válvulas levando à discussão Make-to-Stock × Make-to-Order, Pareto de clientes (top 5 = 62,26%) puxando key account management, insumos críticos pedindo estoque de segurança e múltiplos fornecedores, aderência do plano mestre apontando revisão da previsão. A seção 9 consolida o ciclo dado→informação→conhecimento→decisão de forma explícita. Ressalva: alguns indicadores (giro de estoque, nível de serviço) ficam só qualitativos por falta de dado de estoque médio, e os dados dos gráficos foram digitados à mão no Python em vez de lidos do resultado da query (ver abaixo).
+
+Nota do critério: 8,5.
+
+## Código documentado e reprodutível (peso 15%)
+
+As rotinas de gráfico em Python estão presentes e comentadas, mas com os dados hardcoded: os DataFrames têm os números digitados, em vez de um pd.read_sql trazendo o resultado da consulta. Isso quebra a reprodutibilidade ponta a ponta, o Python não está conectado ao banco, só replota valores já extraídos à mão. E pesa o que arrasto da N1: o artigo não tem seção de Referências, citando Codd e Pressman/Maxim no corpo sem nenhuma entrada na lista. Esse era o ponto mais grave da N1 e voltou. Sem requirements/README e com a numeração de figuras e códigos embaralhada nas seções 5 e 6.
+
+Nota do critério: 6,0.
+
+## Nota final
+
+| Critério | Nota | Peso | Ponderado |
+|---|---|---|---|
+| Conexão e extração de dados | 6,5 | 25% | 1,625 |
+| Qualidade das queries e análises | 9,0 | 25% | 2,25 |
+| Indicadores gerados e interpretação | 8,5 | 20% | 1,70 |
+| Código documentado e reprodutível | 6,0 | 15% | 0,90 |
+| **Soma ponderada (85%)** | | | **6,475** |
+
+A N2 não terá prova oral. A nota final, renormalizando os quatro critérios (85% da rubrica) para a escala de 0 a 10, é **7,6**. Com o ponto extra atribuído na N2, a nota final fica **8,6**.
+
+Um recado direto: a lista de referências ausente é o tipo de coisa que derruba um artigo num encontro de verdade. Vocês têm um trabalho técnico forte preso num problema que se resolvia numa página.
